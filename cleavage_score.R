@@ -114,4 +114,8 @@ dy = dy[faifc>6,]
 setnames(dy,"tRNA","tRNAid")
 dy[transcript_seqs, trnaseq:=i.seq, on=.(tRNAid)]
 dy[, peakseq := toupper(substr(trnaseq, start-4, start+2))]
-write.table(dy, file="trimvalue.fc.lt6.list.txt",quote=F,row.names=F,col.names=T,sep="\t") 
+write.table(dy, file="trimvalue.fc.lt6.list.txt",quote=F,row.names=F,col.names=T,sep="\t")
+
+#seq output for meme
+dy[, motifseq := toupper(substr(trnaseq, start-10, start+10))]
+write.fasta(sequences = as.list(dy$tRNAid), names = dy$motifseq, file.out = "for_motif.fasta") 
