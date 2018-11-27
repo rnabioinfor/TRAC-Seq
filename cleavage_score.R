@@ -3,6 +3,9 @@ library("GenomicAlignments")
 library("GenomicFeatures")
 library("signal")
 library("seqinr")
+library("cowplot")
+library(gridExtra)
+
 
 args <- commandArgs(TRUE)
 trnaSeqFile <- args[1]
@@ -55,7 +58,6 @@ get_coverage <- function(bamfile) {
     tc[,sample:=filename]
     return(tc)
 }
-
 
 tc1 = get_coverage(inputFile)
 tc2 = get_coverage(tracFile)
@@ -118,4 +120,4 @@ write.table(dy, file="trimvalue.fc.lt6.list.txt",quote=F,row.names=F,col.names=T
 
 #seq output for meme
 dy[, motifseq := toupper(substr(trnaseq, start-10, start+10))]
-write.fasta(sequences = as.list(dy$tRNAid), names = dy$motifseq, file.out = "for_motif.fasta") 
+write.fasta(sequences = as.list(dy$motifseq), names = dy$tRNAid, file.out = "for_motif.fasta") 
