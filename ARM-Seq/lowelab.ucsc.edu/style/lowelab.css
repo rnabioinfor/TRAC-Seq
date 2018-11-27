@@ -1,0 +1,174 @@
+@charset "UTF-8";
+/* CSS for lowelab web site */
+
+body {
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #333;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	font-size: 100%;
+	background-color: #FFF;
+}
+a {
+	color: #333;
+}
+a:hover {
+	color: #CC0000;
+}
+.mainFrame h2 {
+	font-size: large;
+	text-decoration: none;
+	padding-top: 15px;
+}
+.mainFrame h3 {
+	font-size: large;
+	font-style: italic;
+	text-decoration: none;
+	padding-top: 15px;
+}
+.mainFrame #container {
+	width: 80%;  /* this will create a container 80% of the browser width */
+	background: #FFFFFF;
+	margin: 0 auto;
+	text-align: left;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: inset;
+	border-bottom-style: none;
+	border-left-style: outset;
+	border-top-color: #FFF;
+	border-right-color: #CCC;
+	border-bottom-color: #FFF;
+	border-left-color: #CCC;
+}
+.mainFrame #menuLink {
+	font-size: 80%;
+	color: #666;
+}
+.mainFrame #menuLink a {
+	text-decoration: none;
+	color: #666;
+}
+.mainFrame #menuLink a:hover {
+	text-decoration: none;
+	color: #CC0000;
+}
+.mainFrame #header {
+	background-color: #FFF;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	padding-top: 10px;
+	padding-right: 25px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+}
+.mainFrame #menu {
+	background-color: #CCC;
+	margin: 0px;
+	padding-top: 7px;
+	padding-right: 20px;
+	padding-bottom: 7px;
+	padding-left: 20px;
+}
+.mainFrame #header td {
+	vertical-align: bottom;
+}
+.mainFrame #menu a {
+	text-decoration: none;
+	color: #666;
+}
+.mainFrame #menu a:hover {
+	text-decoration: none;
+	color: #CC0000;
+}
+.mainFrame #menu td {
+	text-align: center;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.mainFrame #sidebar {
+	float: right; /* since this element is floated, a width must be given */
+	width: 32%; /* top and bottom padding create visual space within this div  */
+	background-color: #FFF;
+	text-align: center;
+	padding-top: 60px;
+	padding-right: 25px;
+	padding-bottom: 30px;
+	padding-left: 25px;
+}
+.mainFrame #sidebar td {
+	width: 50%;
+	font-size: 80%;
+	text-align: center;
+	vertical-align: bottom;
+	border: 2px solid #999;
+}
+.mainFrame #sidebar table {
+	border: 2px solid #999;
+}
+.mainFrame #smallType {
+	font-size: 80%;
+}
+.mainFrame #mainContent {
+	background-color: #FFF;
+	margin-top: 20px;
+	margin-right: 35%;
+	margin-bottom: 20px;
+	margin-left: 25px;
+}
+.mainFrame #researchSidebar {
+	float: right; /* since this element is floated, a width must be given */
+	width: 40%; /* top and bottom padding create visual space within this div  */
+	background-color: #FFF;
+	text-align: center;
+	padding-top: 60px;
+	padding-right: 25px;
+	padding-bottom: 30px;
+	padding-left: 25px;
+}
+.mainFrame #researchContent {
+	background-color: #FFF;
+	margin-top: 20px;
+	margin-right: 45%;
+	margin-bottom: 20px;
+	margin-left: 25px;
+}
+.mainFrame #oneColContent {
+	background-color: #FFF;
+	margin-top: 20px;
+	margin-right: 25px;
+	margin-bottom: 20px;
+	margin-left: 25px;
+}
+.mainFrame #footer {
+	padding: 0 10px;
+	background-color: #FFF;
+} 
+.mainFrame #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.mainFrame #researchSidebar td {
+	width: 50%;
+	font-size: 80%;
+	text-align: center;
+	vertical-align: bottom;
+	border: 2px solid #999;
+}
+.mainFrame #researchSidebar table {
+	border: 2px solid #999;
+}

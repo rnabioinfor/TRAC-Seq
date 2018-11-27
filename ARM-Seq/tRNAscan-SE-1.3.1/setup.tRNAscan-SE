@@ -1,0 +1,3 @@
+setenv PATH "$PATH"":""/home/sl357/bin"
+setenv PERL5LIB "$PERL5LIB"":""/home/sl357/bin"
+setenv MANPATH "$MANPATH"":""/home/sl357/man"
