@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /goldenPath/
-Disallow: /admin/
-User-agent: GoogleBot
-Disallow: /admin/
-Disallow: /goldenPath/
-User-agent: htdig
-Disallow: /admin/
-Disallow: /goldenPath/
