@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>tRNAscan-SE Search Server</title>
+		<meta name="description" content="tRNAscan-SE Web Server">
+		<meta name="author" content="Todd M. Lowe and Patricia P. Chan">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" href="style/normalize.css">
+		<link rel="stylesheet" href="style/foundation.css">
+		<link rel="stylesheet" href="style/trnascanse.css">
+		<link rel="stylesheet" id="font-awesome-css" href="style/font-awesome-4.3.0/css/font-awesome.min.css">
+		<script src="js/vendor/modernizr.js"></script>
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/tRNAscan-SE.js"></script>
+<SCRIPT>
+function checkInput() {
+
+	if (document.tRNAform.qseq.value && document.tRNAform.seqfile.value) { 
+	   return confirm("\n" + 
+		   "You are submitting pasted sequence and a file sequence.\n" +
+	 	   "The server will only search the file submited.\n\n" +
+		   "If you want to search the pasted sequence \n" +
+		   "press 'Cancel', clear the file name, and then submit again.\n"); 
+	}
+	if (((document.tRNAform.organism.value == "Mitomammal") || (document.tRNAform.organism.value == "Mitovert")) &&
+		(document.tRNAform.mode.value == "Legacy")) {
+		alert("\n" + 
+		   "Legacy search mode is not available for mammalian or other vertebrate mitochondrial tRNA detection.\n\n" +
+		   "Please select the default search mode instead.\n");
+		return false;
+	}
+}
+</SCRIPT>
+  	</head>
+
+	<body>
+
+<!--small off canvas menu-->
+<div class="off-canvas-wrap" data-offcanvas>
+	<div class="inner-wrap">
+
+<!--top menu-->
+<nav class="tab-bar show-for-small">
+	<a class="left-off-canvas-toggle menu-icon ">
+		<span>Home</span>
+	</a>  
+</nav>
+
+<nav class="top-bar hide-for-small" data-topbar>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="index.html">Home</a></h1>
+		</li>
+	</ul>
+
+	<section class="top-bar-section">
+		<ul class="right">
+			<li class="divider"></li>
+			<li class="has-dropdown">
+				<a href="help.html" class="">Help</a>
+			</li>
+			<li class="divider"></li>
+			<li class="has-dropdown">
+				<a href="other-links.html" class="">Links</a>
+				<ul class="dropdown">
+					<li><a href="other-links.html">Other Links</a></li>
+					<li><a href="http://gtrnadb.ucsc.edu/" target=_blank>GtRNAdb</a></li>
+				</ul>
+			</li>
+			<li class="divider"></li>
+			<li class="has-dropdown">
+				<a href="contact.html" class="">About</a>
+				<ul class="dropdown">
+					<li><a href="citation.html">Citation</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+
+<ul class="off-canvas-list">
+	<li><label class="first">tRNAscan-SE</label></li>
+	<li><a href="index.html">Home</a></li>
+</ul>
+
+<hr>
+
+<ul class="off-canvas-list">
+    <li><label>Help</label></li>
+    <li><a href="help.html">Help</a></li>
+</ul>
+
+<hr>
+
+<ul class="off-canvas-list">
+    <li><label>Links</label></li>
+    <li><a href="other-links.html">Other Links</a></li>
+    <li><a href="http://gtrnadb.ucsc.edu/" target=_blank>GtRNAdb</a></li>
+</ul>
+
+<hr>
+
+<ul class="off-canvas-list">
+    <li><label>About</label></li>
+	<li><a href="citation.html">Citation</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="http://lowelab.ucsc.edu" target=_blank>Lowe Lab</a></li>
+</ul>
+
+</aside>
+
+
+<!--content-->
+<!--title-->
+<header id="page-header">	  
+	<div class="small-18 medium-8 large-7 columns">
+		<img src="image/tRNAscanSE_with_name.png"/>
+	</div>
+</header>
+
+<div class="scroll-top-wrapper ">
+	<span class="scroll-top-inner">
+		<i class="fa fa-2x fa-arrow-up"></i>
+	</span>
+</div>
+
+<section id="genome-section">	
+	<div class="row">
+		<div class="small-16 medium-8 large-8 columns">
+<BR>
+<h4>Version: tRNAscan-SE 2.0</h4></br>
+<h5>When using this web server, please cite one of the <a href="citation.html">references</a>.</h5>
+<P>Lowe, T.M. and Chan, P.P. tRNAscan-SE On-line: Search and Contextual Analysis of Transfer RNA Genes. (Submitted)</BR>
+Chan, P.P., Lin, B., and Lowe, T.M. tRNAscan-SE 2.0. (In Preparation)</P>
+
+<!--<h5>Download</h5>-->
+<!--<P>Source code: <a href="#">tRNAscan-SE-2.0.tar.gz</a></br>-->
+<h5><a href="ExampleSequences.fa" target=_blank>Example tRNA sequences</a></h5>
+
+		</div>
+	<div class="small-8 medium-4 large-4 columns">
+	<br><br>
+<img src="image/3D-tRNA-lowelab.png" width=50%/>
+	</div>
+		
+		<div class="small-24 medium-12 large-12 columns">
+	
+<h5>Search options</h5>
+<form id="form_find_trna" onsubmit="return checkInput()" action="/cgi-bin/tRNAscan-SE2.cgi"
+ method="post" enctype="multipart/form-data" name="tRNAform">
+
+<table cellspacing=0 cellpadding=3 border=0>
+<tr>
+<td valign="top" width=200>Sequence source</td>
+<td valign="top">
+<SELECT name="organism" size=1 style="width: 20%" onchange=select_org(value)>
+<OPTION value=Mixed> Mixed (general tRNA model)</OPTION>
+<OPTION value=Eukaryotic selected>Eukaryotic</OPTION>
+<OPTION value=Bacterial>Bacterial</OPTION>
+<OPTION value=Archaeal>Archaeal</OPTION>
+<OPTION value=Mitomammal>Mammalian mitochondrial</OPTION>
+<OPTION value=Mitovert>Vertebrate mitochondrial</OPTION>
+<OPTION value=Mitoother>Other mitochondrial</OPTION>
+</SELECT>
+</td>
+<tr>
+<tr>
+<td valign="top" width=200>Search mode</td>
+<td valign="top">
+<SELECT name="mode" size=1  style="width: 30%">
+<OPTION value=Default selected>Default</OPTION>
+<OPTION value=Legacy>Legacy (tRNAscan + EufindtRNA -> Cove)</OPTION>
+<OPTION value=NoHMM>Infernal without HMM filter (very slow)</OPTION>
+</SELECT>
+</td>
+</tr>
+<tr>
+<td valign="top" width=200 rowspan=2>Query sequence</td>
+<td valign="top">
+<input checked="checked" value="formatted" name="qformat" type="radio" id="qformat_formatted"><label for="qformat_formatted">Formatted (FASTA)</label>
+<input value="raw" name="qformat" type="radio" id="qformat_unformatted"><label for="qformat_unformatted">Raw Sequence</label>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<div class="medium-3 columns">
+	Sequence name (optional): 
+</div>
+<div class="medium-7 columns">
+	<input size="20" name="seqname" type="text" id="seqname">
+</div>
+<div class="medium-2 columns">
+	(no spaces)
+</div>
+<textarea name="qseq" rows=15 cols=80></textarea>
+(Queries are limited to a total of less than 5 million nucleotides at any one time)<BR><BR>
+or submit a file:<BR><BR>
+<input type="file" name="seqfile" />
+<!--<div class="medium-9 large-10 columns">
+</div>
+<div class="medium-3 large-2 columns">-->
+<input onClick="document.tRNAform.qseq.value = ''; document.tRNAform.seqfile.value = ''" value="Clear Sequence" type="button" /><BR>
+<!--</div>-->
+</td>
+</tr>
+<tr>
+<td valign="top" width=200>Output</td>
+<!--<td valign="top">-->
+<INPUT hidden TYPE=RADIO NAME=result VALUE=html CHECKED> <!--Show results in this browser.<BR>-->
+<!--<INPUT TYPE=RADIO NAME=result VALUE="mail"> Receive results by e-mail instead:<BR>
+<div class="medium-4 columns">
+<INPUT TYPE=TEXT NAME="address" SIZE=40>
+</div>
+</td>
+</tr>
+<tr>-->
+<td valign="top">
+<INPUT TYPE=CHECKBOX NAME=bedformat id="bedformat"><label for="bedformat">Output BED format</label>
+</td>
+</tr>
+</table>
+<button type="submit">Run tRNAscan-SE</button>
+<input class="button" value="Reset Form" type="reset">
+
+<h5>Extended options</h5>
+<table cellspacing=0 cellpadding=3 border=0>
+<tr>
+<td valign="top" colspan=2>
+<INPUT TYPE=CHECKBOX ID=pseudogene NAME=pseudogene> Disable pseudo gene checking<br>
+<INPUT TYPE=CHECKBOX ID=origin NAME=origin> Show origin of first-pass hits<br>
+<INPUT TYPE=CHECKBOX ID=codons NAME=codons> Show codons instead of tRNA anticodons<br>
+<!--<INPUT TYPE=CHECKBOX ID=fpos NAME=fpos> Show false positives from first pass scan<br>-->
+<INPUT TYPE=CHECKBOX ID=breakdown NAME=breakdown> Show primary and secondary structure components to scores
+</td>
+</tr>
+<tr>
+<td valign="top" width=300>Genetic Code for tRNA Isotype Prediction:</td>
+<td valign="top">
+<SELECT ID="gcode" NAME="gcode">
+<OPTION value=Universal selected> Universal
+<OPTION value=Ciliate> Ciliate Nuclear
+<OPTION value=Vert> Vertebrate Mito
+<OPTION value=Invert> Invertebrate Mito
+<OPTION value=Yeast> Yeast Mito
+<OPTION value=Echin> Echinoderm Mito
+<OPTION value=Mold> Mold & Protozoan Mito
+</SELECT>
+</td>
+</tr>
+<tr>
+<td valign="top" width=300>Score cutoff:</td>
+<td valign="top"><INPUT SIZE=8 NAME="score" VALUE=""><br><br>
+Default cut-off value should only be changed for execptional conditions
+</td>
+</tr>
+</table>
+</form>
+		</div>
+	</div>
+</section>
+	
+<section id="footer">
+	<div class="row">
+		<div class="small-12 columns">
+			<p><a href="http://lowelab.ucsc.edu" target=_blank>The Lowe Lab</a>, Biomolecular Engineering, University of California Santa Cruz</p>
+		</div>
+	</div>
+</section>
+
+		<a class="exit-off-canvas"></a>
+	</div>      
+</div>
+		<script src="js/backToTop.js"></script>
+	  	<script src="js/foundation.min.js"></script>
+	  	<script type="text/javascript">
+	    $(document).foundation();
+	  	</script>
+	</body>
+</html>

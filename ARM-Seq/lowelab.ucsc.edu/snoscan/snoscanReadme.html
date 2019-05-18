@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Snoscan README</title>
+</head>
+<body>
+<h2>Using the snoscan Web Server</h2>
+The snoscan server is accessed via the Lowe Lab Webserver Interface
+at&nbsp; http://lowelab.ucsc.edu/snoscan/. <br>
+<br>
+<span style="font-weight: bold;">User Interface</span><br>
+<br>
+The snoscan interface consists of four major components:<br>
+* Search mode selection<br>
+* Query sequence selection<br>
+* Target sequence selection<br>
+* Configuration of search-mode and options for displaying results<br>
+<br>
+The search mode determines which probabilistic model to use in searches
+&#8211; each model is based on snoRNA training data from selected species or
+phylogenetic groups (i.e., mammals, yeasts, archaea). If no explicit
+model for the species of interest is available in the user interface,
+specifying either a general model or a model from a related species
+generally yields good results. Different search modes can offer varying
+speed and sensitivity.&nbsp; <br>
+<br>
+Query sequence selection is used to specify the sequences to be
+searched for snoRNAs. Raw or formatted sequence data can be pasted
+directly into the query sequence box or can be uploaded from a local
+file. Links to <a href="default-files/Sample-snos.fa">sample query
+sequence data</a> are also available for demonstration purposes.
+snoscan also expects &#8220;target sequences&#8221; &#8211; i.e. sequences that may
+base-pair and be modified by the query snoRNA sequence. Preloaded
+target sequences may be chosen, including rRNA from human, yeast, and
+other model organisms.&nbsp; Alternatively, the user can specify a
+custom target RNA sequence. As with the query sequence, a custom target
+sequence can be pasted into a box in either raw or formatted form, or
+can be uploaded from a file. When using a custom target sequence, by
+default, every nucleotide in the sequence is treated as a potential
+target.&nbsp; Alternatively, the user can specify a subset of the
+target sequence nucleotides by uploading a custom &#8220;<a href="meth.html">methylation
+file</a>&#8221; that indicates which nucleotides to use as target sites.
+Sample <a href="default-files/Hu-meth.sites">human</a> and <a
+ href="default-files/Sc-meth.sites">yeast</a> methylation files are
+included on the server.&nbsp; When methylation positions are known,
+restricting the search space to these known target sites has the
+advantage of decreasing search time and the number of false positive
+&#8220;hits&#8221;.<br>
+<br>
+The server also has a set of program-specific search and output-display
+options such as limits on the distances between some of the sequence
+motifs (e.g. C and D boxes). In addition, the server has an adjustable
+cutoff score enabling tradeoffs between scan sensitivity and
+specificity. In most cases, the default parameter choices will be
+satisfactory and should be selected &#8211; especially by new users. However,
+more experienced users are able to exert some control over the
+program&#8217;s results by manipulating these parameters.<br>
+<br>
+<span style="font-weight: bold;">Output format</span><br>
+<br>
+The snoscan output consists of a summary information line for each
+predicted C/D box snoRNA sequence, followed by the candidate in FASTA
+format.&nbsp; The summary listing for each hit includes:<br>
+<br>
+* Query sequence name and snoRNA start and end positions within the
+query sequence<br>
+* snoscan overall bit score<br>
+* Target sequence name and target methylation position <br>
+* Total number of base pairings and mismatches in the guide region<br>
+* Whether the guide region is adjacent to the D' box or D box<br>
+* The length of the candidate subsequence<br>
+* Whether or not a terminal stem was detected<br>
+&nbsp;<br>
+Also included in the display are graphical representations of the
+base-pairing in the target-guide region and the secondary structure of
+the terminal stem motif. Snoscan scores for known snoRNA sequences for
+various species are available on the website for comparison.<br>
+<br>
+Sample (abbreviated) snoscan Output<br>
+<br>
+<span style="font-family: monospace;">&gt;&gt; snR24&nbsp; 26.40&nbsp;
+(1-87)&nbsp; Cmpl: ySc-25S-Am1447 (U24)&nbsp; 12/0 bp&nbsp; Gs-DpBox:
+18 (18)&nbsp; Len: 87&nbsp; TS</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">Meth site found: 1447 (U24)&nbsp;
+Guide Seq Sc: 11.88&nbsp; (21.36 -1.12 -7.36 -1.00)</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">Db seq:&nbsp;
+5'-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AGUAGCAAAUAU -3'&nbsp;&nbsp;
+ySc-25S&nbsp;&nbsp;&nbsp; (1444-1456)</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+||||||||||||</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">Qry seq: 3'- AGACUUCAUCGUUUAUA
+-5'&nbsp;&nbsp;&nbsp;&nbsp; snR24&nbsp;&nbsp;&nbsp; (29-18)</span><br
+ style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">Terminal stem:+- [C Box]-N- ACU -
+5'&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Stem Sc: 0.84 (3 bp)</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|||</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; +---[D Box] - UGAA -
+3'&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Stem Transit Sc: -1.11</span><br
+ style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">&gt;Summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[ C Box ] --&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- [ Cmpl/
+Mism ]&nbsp; X [D'Bx] --&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- [D
+Bx]&nbsp; Length</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&gt;Meth Am1447&nbsp; [AUGAUGU]
+--&nbsp;&nbsp; 6 bp&nbsp; -- [&nbsp; 12 / 0&nbsp;&nbsp;&nbsp; ]&nbsp; 1
+[CAGA] -- 47 bp -- [CUGA]&nbsp;&nbsp; 87 bp</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&gt;Sc&nbsp;&nbsp;&nbsp;
+26.40&nbsp; [&nbsp; 7.48 ] --&nbsp; -1.59&nbsp; -- [ 21.36 bits
+]&nbsp;&nbsp;&nbsp; [3.94]&nbsp;&nbsp;&nbsp; -2.44&nbsp;&nbsp;&nbsp;
+[8.05]</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">Candidate sequence:</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">&gt;snR24&nbsp; 26.40&nbsp;
+(1-87)&nbsp; Cmpl: ySc-25S-Am1447&nbsp; Len: 87</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">TCAAATGATGTAATAACATATTTGCTACTTCAGATGGAACTTTGAGTTCCGAATGAGACA</span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">TACCAATTATCACCAAGATCTCTGATG</span><br>
+<br>
+The snoscan output consists of a summary text information line for each
+predicted C/D box snoRNA (starting with "&gt;&gt;""), followed by other
+information, including graphical representations of base-pairing
+in the target-guide region and the terminal
+stem motif. A sample header line is labelled below:
+<pre>    (1)      (2)     (3)           (4)      (5)   (6)    (7)      (8)      (9) (10)     (11) (12)<br>&gt;&gt; My-query  26.40  (11-97)  Cmpl: ySc-25S-Am1447 (U24)  12/0 bp  Gs-DpBox: 28 (18)  Len: 87  TS<br></pre>
+<b>Key:</b>
+<ol>
+  <li> Query sequence name
+  </li>
+  <li> Snoscan overall score (in bits)
+  </li>
+  <li> Start and end coordinates of the predicted snoRNA within the
+query sequence
+  </li>
+  <li> Target sequence name (ySc-25S in this example)
+  </li>
+  <li> Target methylation nucleotide and position in target sequence (A
+at position 1447 here)
+  </li>
+  <li> If the methylation site matches a position in methylation file,
+this is the annotation provided for that
+methylaiton site (in this case, this site is annotated as known to be
+guided by U24). If no methylation file
+was provided, or there is no site match in the methylation file, this
+will appear as a dash "-".
+  </li>
+  <li> Total number of base pairings / mismatches in the guide region
+(G-U pairs count as a base pair)
+  </li>
+  <li> Whether the guide region is adjacent to the D' box ("Gs-DpBox")
+or D box ("Gs-D box")
+  </li>
+  <li> Position of the start of the guide region in the snoRNA
+candidate (relative to the entire query)
+  </li>
+  <li> Position of the start of the guide region in the snoRNA
+candidate (relative to beginning of the snoRNA hit)
+  </li>
+  <li> The length of the candidate snoRNA
+  </li>
+  <li> Whether or not a terminal stem was detected (TS=terminal stem
+present, blank=not present)
+  </li>
+</ol>
+<br>
+An example of the middle part of the output for each hit follows
+below, and is fairly self-explanatory. Abbreviations: "Db seq" =
+query sequence, "Sc" = bit score for that feature of the model, "Meth
+site found" means that this position matches a position found in the
+methylation file, and "(U24)" is the annotation provided for this site
+within the methylation file (same as described above). Also note that
+an asterisk (*) appears above the nucleotide predicted to be
+methylated by this snoRNA candidate:
+<pre>Meth site found: 1447 (U24)     Guide Seq Sc: 11.88  (21.36 -1.12 -7.36 -1.00)<br><br>                                  *                                        <br>Db seq:  5'-                   AGUAGCAAAUAU -3'   ySc-25S       (1444-1456)<br>                               ||||||||||||<br>Qry seq: 3'-              AGACUUCAUCGUUUAUA -5'   My-query      (39-28)<br><br>Terminal stem:            +-[C Box] -N- ACU - 5'                Stem Sc: 0.84 (3 bp)<br>                          |             |||<br>                          +---[D Box] - UGAA - 3'               Stem Transit Sc: -1.11<br><br></pre>
+The next part of the output is a graphical summary of the same
+information above, where
+<ul>
+  <li>the first line is the label for each feature
+  </li>
+  <li>the second line gives the target
+methylation site, the sequences for each box feature, the length of
+spaces between features, and the overall length of the snoRNA
+candidate
+  </li>
+  <li>the third line gives the overall
+score, the scores for each box feature, and scores for the distances
+between features
+  </li>
+</ul>
+<pre>&gt;Summary      [ C Box ] --         -- [ Cmpl/ Mism ]  X [D'Bx] --       -- [D Bx]  Length<br>&gt;Meth Am1447  [AUGAUGU] --   6 bp  -- [  12 / 0    ]  1 [CAGA] -- 47 bp -- [CUGA]   87 bp<br>&gt;Sc    26.40  [  7.48 ] --  -1.59  -- [ 21.36 bits ]    [3.94]    -2.44    [8.05]<br></pre>
+And finally, the candidate sequence is given in FASTA format:
+<pre>Candidate sequence:<br>&gt;snR24  26.40  (1-87)  Cmpl: ySc-25S-Am1447  Len: 87<br>TCAAATGATGTAATAACATATTTGCTACTTCAGATGGAACTTTGAGTTCCGAATGAGACA<br>TACCAATTATCACCAAGATCTCTGATG<br></pre>
+<h4>Further information<br>
+</h4>
+The snoscan algorithm is described in:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+ href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=10024243">
+Lowe, T.M. &amp; Eddy, S.E. (1999) "A computational screen for
+methylation guide snoRNAs in yeast", <i>Science</i> 283:1168-71</a>
+<span style="font-family: monospace;"><br>
+</span><br>
+Additional information can be found in the documentation to the
+stand-alone version of the program available at:<br>
+<a href="/software/snoGPS-0.2.tar.gz">http://lowelab.ucsc.edu/software/snoscan.tar.gz<br>
+</a>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

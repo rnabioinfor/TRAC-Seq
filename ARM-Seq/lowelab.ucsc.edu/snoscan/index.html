@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Snoscan Server</title>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="Content-Type">
+  <meta content="lowe@soe.ucsc.edu" name="AUTHOR">
+  <script>
+function checkInput() {
+
+	if ((document.snosform.qseq.value && document.snosform.qseqfile.value)
+	   || (document.snosform.rseq.value && document.snosform.rseqfile.value)) { 
+	   return confirm("\n" + 
+		   "You are submiting pasted sequence and a file sequence.\n" +
+	 	   "The server will only search the file submited.\n\n" +
+		   "If you want to search the pasted sequence \n" +
+		   "press 'Cancel', clear the file name, and then submit again.\n"); 
+	}
+
+}
+  </script>
+</head>
+<body bgcolor="white">
+<table width="95%">
+  <tbody>
+    <tr>
+      <td>
+      <font size="6">Lowe Lab<br>
+      </font>
+      <font color="blue" size="6">Snoscan Server 1.0
+      </font></td>
+      <td>
+      <img alt="[UCSC]" width="95" src="/images/slug-icon.gif"
+ align="right"></td>
+    </tr>
+    <tr>
+      <td>
+Search for C/D box methylation guide snoRNA genes in a genomic sequence
+      </td>
+      <td><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+Snoscan is based on an algorithm described in:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a
+ href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=pubmed&amp;dopt=Abstract&amp;list_uids=10024243">
+Lowe, T.M. &amp; Eddy, S.E. (1999) "A computational screen for
+methylation guide snoRNAs in yeast", <i>Science</i> 283:1168-71</a><br>
+<br>
+Instructions for using the snoscan server and interpreting its output
+can be found in the <a href="snoscanReadme.html">snoscan README file</a>.<br>
+<br>
+If you would like to run snoGPS locally, you can get the UNIX
+<a href="/software/snoscan.tar.gz">source
+code</a> (gzipped tar file).<br>
+<br>
+You may also wish to refer to the Eddy/Lowe <a
+ href="/snoRNAdb/">snoRNA Database</a> of
+methylation guide snoRNAs for yeast &amp; Archaeal snoRNAs.
+<hr>
+<form onsubmit="return checkInput()" action="/cgi-bin/snoscan.cgi"
+ method="post" enctype="multipart/form-data" name="snosform">
+  <h2>Probabilistic Search Model:</h2>
+  <select name="model">
+  <option> Mammalian (good default)
+  </option>
+  <option> Yeast
+  </option>
+  <option> Archaea
+  </option>
+  </select>
+  <br>
+  <br>
+  <hr>
+  <table valign="TOP">
+    <tbody>
+      <tr valign="top">
+        <td>
+        <h2>Query Sequence</h2>
+        <b>Format:</b>
+        <p><input value="qraw" name="qformat" type="radio"> Raw Sequence<br>
+Sequence name (optional): <input size="20" name="qseqname" type="text">
+(no spaces)</p>
+        <p><input checked="checked" value="qother" name="qformat"
+ type="radio"> Other (FASTA, GenBank, EMBL, GCG, IG)</p>
+        <p>
+        <table>
+          <tbody>
+            <tr>
+              <td><b>Paste your query sequence(s) here:</b></td>
+            </tr>
+            <tr>
+              <td colspan="3"><textarea cols="61" rows="12" name="qseq"></textarea><br>
+(The web-server may experience problems if submitted queries total
+more than 100K nucleotides at any one time)<br>
+              <a href="default-files/Sample-snos.fa">Sample yeast
+snoRNA sequences</a><br>
+              <br>
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+              <input onclick="document.snosform.qseq.value = ''"
+ value="Clear Sequence" type="button"></td>
+            </tr>
+            <tr>
+              <td><br>
+              <b>OR submit a file:</b> <input size="30" type="file"
+ name="qseqfile"><br>
+              <br>
+              <br>
+              <br>
+              <input checked="checked" value="html" name="result"
+ type="radio"> Show results in this browser, OR<br>
+              <input value="mail" name="result" type="radio"> Receive
+results by e-mail instead:<br>
+&nbsp;&nbsp;<input size="40" name="address" type="text">
+              <p><br>
+              <button type="submit">
+              <h2>Run Snoscan!</h2>
+              </button><br>
+              <br>
+              <input value="Clear Form" type="reset">
+              </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </p>
+        </td>
+        <td>
+        <h2>Target RNA Sequence (e.g. rRNA)</h2>
+        <b>Format:</b>
+        <p><input value="rraw" name="rformat" type="radio"> Raw Sequence<br>
+Sequence name (optional): <input size="20" name="rseqname" type="text">
+(no spaces)</p>
+        <p><input checked="checked" value="rother" name="rformat"
+ type="radio"> Other (FASTA, GenBank, EMBL, GCG, IG)</p>
+        <p>
+        <table>
+          <tbody>
+            <tr>
+              <td><b>Paste your target RNA sequence(s) here:</b></td>
+            </tr>
+            <tr>
+              <td colspan="3"><textarea cols="61" rows="12" name="rseq"></textarea><br>
+(The web-server may experience problems if submitted targets total
+more than 10K nucleotides at any one time)</td>
+            </tr>
+            <tr>
+              <td align="left">
+              <input onclick="document.snosform.rseq.value = ''"
+ value="Clear Sequence" type="button"></td>
+            </tr>
+            <tr>
+              <td><br>
+              <b>OR submit a file:</b> <input size="30" type="file"
+ name="rseqfile"><br>
+              <br>
+              <b>OR use a provided target RNA sequence:</b>
+              <p><input value="default" name="rformat" type="radio">
+              <select name="rRNAseq">
+<OPTION> S. cerevisiae ribosomal RNA
+<OPTION> H. sapiens ribosomal RNA
+<OPTION> M. musculus ribosomal RNA
+<OPTION> A. thaliana ribosomal RNA
+<OPTION> C. elegans ribosomal RNA
+<OPTION> D. melanogaster ribosomal RNA
+<OPTION> Pyrococcus furiosus ribosomal RNA
+<OPTION> Pyrococcus furiosus transfer RNA
+              </select>
+              <br>
+              <br>
+              <br>
+              <b>Optional: Specify positions of known or predicted
+sites of methylation</b> <br>
+              <br>
+Methylation file:&nbsp;<input size="30" type="file" name="methfile"><br>
+              <br>
+              <a href="meth.html">Methylation file format</a> | <a
+ href="default-files/Sc-meth.sites">Yeast methylation file</a> | <a
+ href="default-files/Hu-meth.sites">Human methylation file</a> <br>
+              </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <font size="+2">Filtering / Sorting Options:</font>&nbsp;&nbsp;(Default:
+sort all hits by overall score)<br>
+  <br>
+  <table width="75%">
+    <tbody>
+      <tr>
+        <td valign="top">
+Sort hits by:
+        <select name="Sort_key">
+        <option>Overall score
+        </option>
+        <option>Position of hit in query sequence
+        </option>
+        <option>Position of hit in target sequence (methylation site)
+        </option>
+        </select>
+        </td>
+        <td valign="top">
+Filter hits by target site:
+        <select name="Meth_site_filter">
+        <option>No filter
+        </option>
+        <option>Keep ONLY hit to sites in methylation file
+        </option>
+        <option>REMOVE hits to sites in methylation file
+        </option>
+        </select>
+        <br>
+        <br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+Output only top
+        <select name="top_hits">
+        <option> 3
+        </option>
+        <option> 1
+        </option>
+        <option> 2
+        </option>
+        <option> 4
+        </option>
+        <option> 5
+        </option>
+        <option> 6
+        </option>
+        <option> 7
+        </option>
+        <option> 8
+        </option>
+        <option> 9
+        </option>
+        <option> 10
+        </option>
+        </select>
+hits per methylation site
+        <p></p>
+        </td>
+        <td><input checked="checked" name="simplify_output"
+ type="checkbox">Simplify output information</td>
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
+  <hr><font size="+2">Search Options:</font><br>
+  <br>
+  <table width="100%">
+    <tbody>
+      <tr valign="top" align="left">
+        <td>Final Score cutoff:&nbsp; <input size="10"
+ name="final_cutoff" type="text"></td>
+        <td>C Box Score cutoff:&nbsp;
+        <input size="10" name="CBox_cutoff" type="text"></td>
+      </tr>
+      <tr valign="top" align="left">
+        <td>Minimum length for snoRNA-rRNA pairing:&nbsp; <input
+ size="10" name="min_length" type="text"></td>
+        <td>D' Box Score cutoff:&nbsp;
+        <input size="10" name="DpBox_cutoff" type="text"></td>
+      </tr>
+      <tr valign="top" align="left">
+        <td>Minimum score for complementary region:&nbsp; <input
+ size="10" name="comp_minscore" type="text"></td>
+        <td>Max distance between C and D boxes:&nbsp;
+        <input size="10" name="maxdis_CD" type="text"></td>
+      </tr>
+      <tr valign="top" align="left">
+        <td>Initiate scan at this position in sequence:&nbsp;
+        <input size="10" name="start_position" type="text"></td>
+        <td>Max distance to known methsite:&nbsp;
+        <input size="10" name="maxdis_meth" type="text"></td>
+      </tr>
+      <tr valign="top" align="left">
+        <td>Min distance between rRNA match and Dbox when D'box is
+present:&nbsp; <input size="10" name="mindis_rRNA" type="text"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="100%">
+    <tbody>
+      <tr valign="top" align="left">
+<!--
+<TD><font size=+2>Run Snoscan with a different model:</font></TD>
+</TR>
+
+<TR>
+<TD>Enter your own <a href="alignment.html">alignment file</a>:&nbsp
+<INPUT NAME="alignfile" TYPE="file" SIZE=30>
+</TR>
+-->
+      </tr>
+    </tbody>
+  </table>
+</form>
+<hr noshade="noshade" size="4">
+<table width="100%">
+  <tbody>
+    <tr>
+      <td width="370">
+Send comments/questions/problems using this search page or local
+installation of <em>Snoscan</em> to <a href="mailto:lowe@soe.ucsc.edu">lowe@soe.ucsc.edu</a>
+      <p></p>
+      </td>
+      <td width="20">
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr noshade="noshade" size="4">
+<em><a href="/">Back to Lowe Lab Homepage</a></em>
+</body>
+</html>

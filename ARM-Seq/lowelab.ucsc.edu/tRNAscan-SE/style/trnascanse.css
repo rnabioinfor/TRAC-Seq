@@ -1,0 +1,402 @@
+@charset "UTF-8";
+
+#gtrnadb-homepage {
+	background: #416197;
+	height: 340px;
+	text-align: left;
+	position: relative;
+	padding: 50px 20px 0 20px;
+}
+@media screen and (max-width: 768px) {
+    #gtrnadb-homepage {
+		padding: 40px 5px 30px 5px;
+	}
+}
+@media screen and (max-width: 1024px) {
+    #gtrnadb-homepage {
+		height: 340px;
+	}
+}
+@media screen and (min-width:1400px) and (max-width: 1600px) {
+    #gtrnadb-homepage {
+		height: 400px;
+	}
+    #gtrnadb-homepage h1 {
+        font-size: 4em;
+	}
+}
+#gtrnadb-homepage h1 {
+    font-size: 3.2em;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 0;
+    line-height: 100%;
+}
+@media screen and (max-width: 768px) {
+    #gtrnadb-homepage h1 {
+        font-size: 38px;
+	}
+}
+#gtrnadb-homepage h4 {
+    font-size: 1.2em;
+    color: white;
+    font-weight: 300;
+}
+#gtrnadb-homepage h3 {
+	font-size: 1.7em;
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    #gtrnadb-homepage h3 {
+        font-size: 18px;
+        line-height: 28px;
+	}
+}
+#gtrnadb-homepage .floatingyeti img {
+    min-width: 20%;
+    max-width: 20%;
+    position: absolute;
+    right: 100px;
+    top: 0px;
+}
+@media only screen and (max-width: 40em) {
+	#gtrnadb-homepage {
+		min-height: 550px;
+	}
+    #gtrnadb-homepage .floatingyeti img {
+	    min-width: 60%;
+        position: relative;
+        right: 0;
+        bottom: 0px;
+        top: 0px;
+        left: 80px;
+	}
+}
+@media only screen and (min-width:40.063em) and (max-width:64em) {
+    #gtrnadb-homepage h1 {
+        font-size: 3em;
+	}
+	#gtrnadb-homepage {
+		min-height: 400px;
+	}
+    #gtrnadb-homepage .floatingyeti img {
+	    min-width: 45%;
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+		top:0px;
+	}
+}
+@media only screen and (min-width:64.1em) and (max-width:1280px) {
+    #gtrnadb-homepage h1 {
+        font-size: 3.1em;
+	}
+	#gtrnadb-homepage {
+		min-height: 340px;
+	}
+    #gtrnadb-homepage .floatingyeti img {
+	    min-width: 35%;
+        position: absolute;
+        right: 80px;
+        bottom: 0px;
+		top:0px;
+	}
+}
+@media only screen and (min-width:1281px) {
+    #gtrnadb-homepage h1 {
+        font-size: 4em;
+	}
+	#gtrnadb-homepage {
+		min-height: 430px;
+		padding-top: 80px;
+	}
+    #gtrnadb-homepage .floatingyeti img {
+	    min-width: 32%;
+        position: absolute;
+        right: 100px;
+        bottom: 0px;
+		top:0px;
+	}
+}
+
+#db-desc {
+	display: block;
+	margin-top: 15px;
+}
+#db-desc section {
+    color: white;
+	font-size: 1.1em;
+	line-height: 120%;
+    float: left;
+    margin-bottom: 4px;
+}
+#db-desc a {
+    color: white;
+	font-weight: 800;
+}
+@media screen and (max-width: 768px) {
+    #db-desc a {
+        font-size: 15px;
+	}
+}
+#db-desc small {
+    position: absolute;
+    left: -8px;
+    top: 7px;
+}
+
+.scroll-top-wrapper {
+    position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	text-align: center;
+	z-index: 99999999;
+    background-color: #999999;
+	color: #ffffff;
+	width: 50px;
+	height: 50px;
+	line-height: 48px;
+	right: 30px;
+	bottom: 30px;
+	padding-top: 2px;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.scroll-top-wrapper:hover {
+	background-color: #666666;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+	opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+	line-height: inherit;
+}
+
+.accordion .fa-caret-left{
+  display:inline;
+  float: right;
+  color: #aaaaaa;
+}
+.accordion .fa-caret-down{
+  display:none;
+  color: #aaaaaa;
+}
+.accordion .accordion-navigation > a .fa-caret-left{
+  display:inline;
+  float: right;
+}
+.accordion .accordion-navigation > a .fa-caret-down{
+  display:none;
+}
+.accordion .accordion-navigation.active > a .fa-caret-left{
+  display:none;
+}
+.accordion .accordion-navigation.active > a .fa-caret-down{
+  display:inline;
+  float: right;
+}
+.button-group .subnav
+{
+	background: #efefef;
+	color: #222222;
+}
+.button-group .subnav
+{
+	background: #efefef;
+	color: #222222;
+}
+.button-group li > .button:hover, .button:focus{
+	background: #999999;
+	color: #ffffff;
+}
+
+#homepage-section {
+	text-align: left;
+	position: relative;
+	padding: 50px 20px 50px 20px;
+}
+@media screen and (max-width: 768px) {
+    #homepage-section {
+		padding: 30px 5px 30px 5px;
+	}
+    #page-section {
+		padding: 30px 5px 30px 5px;
+	}
+}
+#homepage-section h4 {
+    font-size: 1.35em;
+    font-weight: 800;
+	line-height: 180%;
+}
+
+#homepage-section .linkbox table tr td {
+	border: solid 1px #dddddd;
+	font-size: 0.875rem;
+}
+
+#footer {
+	text-align: center;
+	position: relative;
+	padding: 20px 0px 0 10px;
+	background: #333333;
+	color: white;
+}
+#footer a {
+    color: white;
+	font-weight: 800;
+}
+
+#page-header {
+	background: #416197;
+	width: 100%;
+	text-align: left;
+	position: relative;
+	padding: 0px 30px 20px 0px;
+	float: left;
+}
+#page-header h5 {
+    color: white;
+    font-weight: 600;
+	font-style: italic;
+	padding: 40px 0px 10px 0px;
+	float: right;
+}
+#page-header img {
+    max-width: 80%;
+    right: 0px;
+}
+#page-section {
+	text-align: left;
+	position: relative;
+	margin-top: 20px;
+	padding: 80px 20px 80px 20px;
+}
+#page-section h4 {
+    font-weight: 500;
+	padding-top: 10px;
+}
+#page-section textarea {
+	height: auto;
+}
+
+#page-section table tr td {
+	border: solid 1px #dddddd;
+	font-size: 0.875rem;
+}
+
+@media screen and (max-width: 1280px) {
+    #genome-section {
+		padding: 30px 5px 0px 5px;
+	}
+}
+
+#genome-section {
+	text-align: left;
+	position: relative;
+	margin-top: 20px;
+	padding: 80px 0px 80px 30px;
+}
+
+#genome-section .row {
+  max-width: 100%;
+}
+
+#genome-section .side-bar {
+	text-align: left;
+	position: relative;
+	margin-top: 20px;
+	background: #efefef;
+	padding: 0;
+}
+
+#genome-section .boxes {
+	padding: 0;
+}
+
+#genome-section h4 {
+    font-weight: 500;
+	padding-top: 10px;
+}
+
+#genome-section h5 {
+    font-weight: 500;
+}
+
+#genome-section .tRNA-box table tr td {
+	border: solid 1px #dddddd;
+	font-size: 0.875rem;
+    text-align: center; 
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#genome-section .intron table tr td {
+	border: solid 1px #dddddd;
+	font-size: 0.875rem;
+    text-align: center; 
+	max-width: 100%;
+}
+
+#genome-section .tRNA-box table th {
+	border: solid 1px #efefef;
+    text-align: center; 
+	background: #dddddd;
+	font-size: 0.875rem;
+	font-weight: bold;
+}
+
+#genome-section table tr td {
+	border: solid 1px #dddddd;
+	font-size: 0.875rem;
+}
+
+#genome-section .tRNA-box .codon tr:nth-of-type(even) {
+    background: #efefef;
+}
+
+.seq_alignment
+{
+  font-size: 10pt;
+  font-family: courier;	
+  font-weight: normal;
+  background-color: white;
+  width:150%;
+  padding: 5px;
+}
+
+#b1    { background-color: #ff9999;}
+#b2    { background-color: #9999ff;}
+#b3    { background-color: #99ff99;}
+#b4    { background-color: #FF9900;}
+#b5    { background-color: #99ffff;}
+#b6    { background-color: #98C0C0;}
+#b7    { background-color: #ffff99;}
+#b8    { background-color: #ff33ff;}
+#b9    { background-color: #33ffff;}
+#b10   { background-color: #ffff33;}
+
+#b11   { background-color: #2ED70C;}
+#b12   { background-color: #F4BEF8;}
+#b13   { background-color: #ff9900;}
+#b14   { background-color: #B94F32;}
+#b15   { background-color: #FF0000;}
+#b16   { background-color: #ffcc99;}
+#b17   { background-color: #CCCCCC;}
+#b18   { background-color: #CC3366;}
+#b19   { background-color: #CCff66;}
+#b20   { background-color: #Ffcc66;}
+#b21   { background-color: #70B803;}
+
+#b22   { background-color: #1AFDE2;}
+#b23   { background-color: #BFE7FD;}
+#b24   { background-color: #E2B8FD;}
+#b25   { background-color: #FD3232;}
+#b26   { background-color: #FD099F;}
+

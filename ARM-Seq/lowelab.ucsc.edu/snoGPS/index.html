@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>snoGPS Search Server</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="AUTHOR" content="schattner@soe.ucsc.edu">
+  <script>
+function checkInput() {
+
+	if ((document.snosform.qseq.value && document.snosform.qseqfile.value)
+	   || (document.snosform.rseq.value && document.snosform.rseqfile.value)) { 
+	   return confirm("\n" + 
+		   "You are submiting pasted sequence and a file sequence.\n" +
+	 	   "The server will only search the file submited.\n\n" +
+		   "If you want to search the pasted sequence \n" +
+		   "press 'Cancel', clear the file name, and then submit again.\n"); 
+	}
+
+}
+  </script>
+</head>
+<body bgcolor="white">
+<table width="66%">
+  <tbody>
+    <tr>
+      <td> <font size="6">Lowe Lab<br>
+      </font> <font size="6" color="blue">snoGPS Server </font></td>
+      <td> <img align="right" src="/images/slug-icon.gif" width="80"
+ alt="[UCSC]"></td>
+    </tr>
+    <tr>
+      <td>Search for H/ACA snoRNA genes in a genomic sequence </td>
+      <td><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<!--
+<center>
+
+</center>
+<hr>
+--><br>
+<h1>snoGPS 1.0</h1>
+The principles underlying the snoGPS program are described in:<br>
+&nbsp;&nbsp;&nbsp; Schattner P, Decatur WA,&nbsp; Davis C,&nbsp; Ares,
+M,&nbsp; Fournier, MJ and Lowe, TM, (2004) <br>
+&nbsp;&nbsp;&nbsp;&nbsp; "Genome-wide Searching for Pseudouridylation
+Guide snoRNAs: Analysis of the <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Saccharomyces cerevisiae genome&#8221;, Nucleic
+Acids Res vol. 32(14): pp. 4281-4296<br>
+<br>
+Instructions for using the snoGPS server and interpreting the output
+can be found in the <a href="snogpsReadme.html">snoGPS README file</a>.<br>
+<br>
+If you would like to run snoGPS locally, you can get the UNIX
+<a href="/software/snoGPS-0.2.tar.gz">source
+code</a> (gzipped tar file).
+<p></p>
+<hr>
+<form name="snosform" enctype="multipart/form-data" method="post"
+ action="/cgi-bin/snogps.cgi" onsubmit="return checkInput()"><br>
+  <table width="70%">
+    <tbody>
+      <tr>
+        <td><b>Source:</b>
+        <select name="organism">
+        <option> Human </option>
+        <option> Yeast </option>
+        <option> Archaea </option>
+        </select>
+        </td>
+      </tr>
+      <tr>
+        <td><b>Scanner:</b><br>
+        <input type="radio" name="scanner" value="twoStemScanner"
+ checked="checked"> Two stem<br>
+        <input type="radio" name="scanner" value="oneStemScanner"> One
+stem<br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p> </p>
+  <h2>Query Sequence</h2>
+  <b>Format:</b>
+  <p><input type="radio" name="qformat" value="qraw" checked="checked">Raw
+Sequence<br>
+Sequence name (optional): <input type="text" name="qseqname" size="20">
+(no spaces)</p>
+  <p><input type="radio" name="qformat" value="qother"> Other (FASTA,
+GenBank, EMBL, GCG, IG)</p>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+        <td><b>Paste your query sequence(s) here:</b></td>
+      </tr>
+      <tr>
+        <td colspan="3"><textarea name="qseq" rows="10" cols="75"></textarea><br>
+(The web-server may experience problems if submitted queries total
+more than 100K nucleotides at any one time)</td>
+      </tr>
+      <tr>
+        <td colspan="3" align="right"> <input type="button"
+ value="Clear Sequence" onclick="document.snosform.qseq.value = ''"></td>
+      </tr>
+      <tr>
+        <td><b>or submit a file:</b> <input name="qseqfile" type="file"
+ size="30"><br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+To try out the server, you can use this <a href="U65.raw">sample human
+H/ACA snoRNA sequence</a>.<br>
+  </p>
+  <h2>Target Sequence</h2>
+  <input type="radio" name="rformat" value="default" checked="checked">
+  <b>Choose a target sequence:</b>
+  <select name="target_seq">
+  <option> Human rRNA </option>
+  <option> Yeast rRNA </option>
+  </select>
+  <p><b>...OR input your own sequence.</b></p>
+  <p><b>Format:</b></p>
+  <p><input type="radio" name="rformat" value="rraw"> Raw Sequence<br>
+Sequence name (optional): <input type="text" name="rseqname" size="20">
+(no spaces)</p>
+  <p><input type="radio" name="rformat" value="rother"> Other (FASTA,
+GenBank, EMBL, GCG, IG)</p>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+        <td><b>Paste your target sequence(s) here:</b></td>
+      </tr>
+      <tr>
+        <td colspan="3"><textarea name="rseq" rows="10" cols="75"></textarea><br>
+(The web-server may experience problems if submitted queries total
+more than 100K nucleotides at any one time)</td>
+      </tr>
+      <tr>
+        <td colspan="3" align="right"> <input type="button"
+ value="Clear Sequence" onclick="document.snosform.rseq.value = ''"></td>
+      </tr>
+      <tr>
+        <td><b>or submit a file:</b> <input name="rseqfile" type="file"
+ size="30"><br>
+        </td>
+      </tr>
+      <tr>
+        <td>Enter your own <a href="puSiteFile.html">pseudouridine file</a>:&nbsp;
+        <input name="customSiteFile" type="file" size="30"> </td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="radio" name="result" value="html" checked="checked">Show
+results in this browser.<br>
+  <input type="radio" name="result" value="mail"> Receive results by
+e-mail instead: <input type="text" name="address" size="40"></p>
+  <p></p>
+  <hr><b>Output Sorting Options:</b>
+  <p>
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td><b>Sorting method:</b>
+        <select name="sort_method">
+        <option> Total score (Default) </option>
+        <option> Target modification position </option>
+        <option> Position in query sequence </option>
+        </select>
+        </td>
+        <td>Output only top
+        <select name="top_hits">
+        <option> 1 </option>
+        <option> 2 </option>
+        <option> 3 </option>
+        <option> 4 </option>
+        <option> 5 </option>
+        <option> 6 </option>
+        <option> 7 </option>
+        <option> 8 </option>
+        <option> 9 </option>
+        <option> 10 </option>
+        </select>
+hits per pseudoU site
+        <p></p>
+        </td>
+        <td><input type="checkbox" name="remove_overlaps"
+ checked="checked">Remove
+lower-scoring overlapping candidates</td>
+        <td><input type="checkbox" name="watsonOnly">Check positive
+strand only</td>
+        <td>Guide region score cutoff:&nbsp; <input type="text"
+ name="guide_cutoff" value="9" size="10"></td>
+      </tr>
+    </tbody>
+  </table>
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td>Final Score cutoff:&nbsp; <input type="text"
+ name="final_cutoff" size="10"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <input type="submit" value="Run snoGPS"> <input type="reset"
+ value="Clear Form"></p>
+  <p></p>
+  <hr size="4" noshade="noshade">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td width="370">Send comments/questions/problems using this
+search page or local
+installation of <em>snoGPS</em> to <a
+ href="mailto:schattner@soe.ucsc.edu">schattner@soe.ucsc.edu</a>
+        <p></p>
+        </td>
+        <td width="20"> <br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr size="4" noshade="noshade"> <em><a
+ href="/">Back to Lowe Lab Homepage</a></em>
+</form>
+</body>
+</html>

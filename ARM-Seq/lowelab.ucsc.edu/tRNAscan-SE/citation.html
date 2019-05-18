@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>tRNAscan-SE Search Server</title>
+		<meta name="description" content="tRNAscan-SE 2.0">
+		<meta name="author" content="Patricia Chan">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" href="style/normalize.css">
+		<link rel="stylesheet" href="style/foundation.css">
+		<link rel="stylesheet" href="style/trnascanse.css">
+		<link rel="stylesheet" id="font-awesome-css" href="style/font-awesome-4.3.0/css/font-awesome.min.css">
+		<script src="js/vendor/modernizr.js"></script>
+		<script src="js/vendor/jquery.js"></script>
+  	</head>
+
+	<body>
+
+<!--small off canvas menu-->
+<div class="off-canvas-wrap" data-offcanvas>
+	<div class="inner-wrap">
+
+<!--top menu-->
+<nav class="tab-bar show-for-small">
+	<a class="left-off-canvas-toggle menu-icon ">
+		<span>Home</span>
+	</a>  
+</nav>
+
+<nav class="top-bar hide-for-small" data-topbar>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="index.html">Home</a></h1>
+		</li>
+	</ul>
+
+	<section class="top-bar-section">
+		<ul class="right">
+			<li class="divider"></li>
+			<li class="has-dropdown">
+				<a href="help.html" class="">Help</a>
+			</li>
+			<li class="divider"></li>
+			<li class="has-dropdown">
+				<a href="other-links.html" class="">Links</a>
+				<ul class="dropdown">
+					<li><a href="other-links.html">Other Links</a></li>
+					<li><a href="http://gtrnadb.ucsc.edu/" target=_blank>GtRNAdb</a></li>
+				</ul>
+			</li>
+			<li class="divider"></li>
+			<li class="has-dropdown">
+				<a href="contact.html" class="">About</a>
+				<ul class="dropdown">
+					<li><a href="citation.html">Citation</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+
+<ul class="off-canvas-list">
+	<li><label class="first">tRNAscan-SE</label></li>
+	<li><a href="index.html">Home</a></li>
+</ul>
+
+<hr>
+
+<ul class="off-canvas-list">
+    <li><label>Help</label></li>
+    <li><a href="help.html">Help</a></li>
+</ul>
+
+<hr>
+
+<ul class="off-canvas-list">
+    <li><label>Links</label></li>
+    <li><a href="other-links.html">Other Links</a></li>
+    <li><a href="http://gtrnadb.ucsc.edu/" target=_blank>GtRNAdb</a></li>
+</ul>
+
+<hr>
+
+<ul class="off-canvas-list">
+    <li><label>About</label></li>
+	<li><a href="citation.html">Citation</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="http://lowelab.ucsc.edu" target=_blank>Lowe Lab</a></li>
+</ul>
+
+</aside>
+
+
+<!--content-->
+<!--title-->
+<header id="page-header">	  
+	<div class="small-10 medium-7 large-4 columns">
+		<img src="image/tRNAscanSE_with_name.png"/>
+	</div>
+	<div class="small-10 medium-7 large-4 columns">
+		<h5>Credits and Citations</h5>
+	</div>
+</header>
+
+<div class="scroll-top-wrapper ">
+	<span class="scroll-top-inner">
+		<i class="fa fa-2x fa-arrow-up"></i>
+	</span>
+</div>
+
+<section id="page-section">	
+	<div class="row">
+		<div class="small-24 medium-12 large-12 columns">
+<BR>
+<P>
+	The tRNAscan-SE Search Server was created and is maintained
+	by <a href="http://lowelab.ucsc.edu/" target=_blank> Todd
+	Lowe</A> and Patricia Chan.
+</P>
+<h5>Citations</h5>
+	<P>
+		If you use this web server to predict tRNAs, please cite:
+		<UL>
+			Lowe, T.M. & Chan, P.P. tRNAscan-SE On-line: Search and Contextual Analysis of Transfer RNA Genes. (Submitted)
+		</UL>
+		<UL>
+			Lowe, T.M. & Eddy, S.R. (1997) <a href="http://www.ncbi.nlm.nih.gov/pubmed/9023104?dopt=Abstract" target=_blank>tRNAscan-SE: A program for
+			improved detection of transfer RNA genes in genomic sequence.</a>
+			<I>Nucl. Acids Res. </I><B>25</B>: 955-964.
+		</UL>
+	</P>
+</P>
+<P>
+	If you find this resource helpful and use it in your research, please help support its
+	funding by writing a quick email to Todd (lowe@soe.ucsc.edu) describing how it has been useful
+	to you.  Letters like these help bolster the case for future funding.  (many thanks!  -Todd)
+</P>
+
+<h5>tRNAscan-SE employs</h5>
+<OL>
+	<LI> Infernal: the RNA covariance similarity search package
+	(Nawrocki & Eddy, <I>Bioinformatics</I> <B>29</B>:  2933-2935, 2013),
+	<LI> a modified, optimized version of tRNAscan v1.3
+	(Fichant & Burks, <I>J. Mol. Biol.</I> <B>220</B>: 659-671, 1991),
+	<LI>a new implementation of a multistep weight matrix algorithm
+	for identification of eukaryotic tRNA promoter regions
+	(Pavesi et al., <I>Nucl. Acids Res.</I> <B>22</B>: 1247-1256, 1994),
+	<LI>the RNA covariance analysis package Cove v.2.4.2
+	(Eddy & Durbin, <I>Nucl. Acids Res.</I> <B>22</B>: 2079-2088, 1994)
+</OL>
+
+<h5>Funding</h5>
+<P>
+	This work is supported by a grant from the National Institutes of Health (HG006753-02).
+</P>
+		</div>
+	</div>
+</section>
+	
+<section id="footer">
+	<div class="row">
+		<div class="small-12 columns">
+			<p><a href="http://lowelab.ucsc.edu" target=_blank>The Lowe Lab</a>, Biomolecular Engineering, University of California Santa Cruz</p>
+		</div>
+	</div>
+</section>
+
+		<a class="exit-off-canvas"></a>
+	</div>      
+</div>
+		
+		<script src="js/backToTop.js"></script>
+	  	<script src="js/foundation.min.js"></script>
+	  	<script type="text/javascript">
+	    $(document).foundation();
+	  	</script>
+	</body>
+</html>
