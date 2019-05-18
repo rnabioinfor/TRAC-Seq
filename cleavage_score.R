@@ -1,10 +1,9 @@
 library("data.table")
 library("GenomicAlignments")
 library("GenomicFeatures")
-library("signal")
 library("seqinr")
 library("cowplot")
-library(gridExtra)
+library("gridExtra")
 
 
 args <- commandArgs(TRUE)
